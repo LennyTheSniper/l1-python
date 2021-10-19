@@ -1,18 +1,20 @@
+import time
+
 #temps[0] : jours, temps[1]: heures, temps[2]: minutes, temps[3]: secondes
 def tempsEnSeconde(temps):
     return(int(temps[0]) * 86400 + int(temps[1]) * 3600 + int(temps[2]) * 60 + int(temps[3]))
     """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
     pass
-
+'''
 temps = (3,23,1,34)
 print(type(temps))
 print(tempsEnSeconde(temps))
-
+'''
 def secondeEnTemps(seconde):
     return((seconde//86400,(seconde//3600) % 24,(seconde//60) % 60,(seconde % 60)))
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     pass
-    
+'''
 temps = secondeEnTemps(100000)
 print(temps[0],"jours",temps[1],"heures",temps[2],"minutes",temps[3],"secondes")
 
@@ -51,7 +53,7 @@ afficheTemps((1,0,14,23))
 
 
 
-"""
+
 def demandeTemps():
     secondes = -1
     minutes = -1
@@ -69,7 +71,7 @@ def demandeTemps():
     pass
 
 afficheTemps(demandeTemps())
-"""
+
 
 
 
@@ -106,8 +108,10 @@ afficheTemps(proportionTemps((2,0,36,0),0.2))
 #appeler la fonction en échangeant l'ordre des arguments
 
 
+'''
 
 
+#---------------------------------------------------------------------------------------
 
 def testBisextile(Annee):
     if Annee % 4 == 0 and (not Annee % 100 == 0 or Annee % 400 == 0):
@@ -116,14 +120,18 @@ def testBisextile(Annee):
         return(False)
 
 def LongueurMois(Mois,Annee):
-    if Mois % 2 == 1 :
+    if Mois % 2 == 1 and Mois < 8 :
         return(31)
     elif Mois == 2 and testBisextile(Annee) == True:
         return(29)
     elif Mois == 2 and testBisextile(Annee) == False:
         return(28)
-    elif Mois % 2 == 0:
+    elif Mois % 2 == 0 and Mois < 8:
         return(30)
+    elif Mois % 2 == 1 and Mois >= 8:
+        return(30)
+    elif Mois % 2 == 0 and Mois >= 8:
+        return(31)
 
 def tempsEnDate(temps):
     Date = list((1970,1,1,0,0,0))
@@ -138,10 +146,11 @@ def tempsEnDate(temps):
             Date[1] -= 12
             Date[0] += 1
     Date = tuple((Date[0],Date[1],Date[2],Date[3],Date[4],Date[5]))
-    print(Date)
+    return(Date)
     pass
 
-def afficheDate(date2):
+def afficheDate(date):
+    date2 = list(date)
     if date2[1] == 1:
         date2[1] = 'Janvier'
     elif date2[1] == 2:
@@ -166,9 +175,44 @@ def afficheDate(date2):
         date2[1] = 'Novembre'
     else:
         date2[1] = 'Décembre'
-    print(date2[2]," ",date2[1]," ",date2[0],date2[3],":",date2[4],":",date2[5],sep='')
+    print(date2[2]," ",date2[1]," ",date2[0]," ",date2[3],":",date2[4],":",date2[5],sep='')
     pass
     
-temps = secondeEnTemps(1000000000)
-tempsEnDate(temps)
-print(afficheDate(tempsEnDate(temps)))
+temps = secondeEnTemps(32503679999)
+afficheDate(tempsEnDate(temps))
+
+
+"""
+
+
+def bisextile(jours):
+    Annee = 2020
+    while jours > 0 :
+        if testBisextile(Annee) == True:
+            print(Annee,"est bisextile!")
+            jours -= 366
+        else:
+            jours -= 365
+        Annee += 1
+    print("Terminé")
+    pass
+        
+bisextile(20000)
+
+
+"""
+
+def verifie(liste_temps):
+    for i in range (len(liste_temps)):
+        sumHoursMonth = 0
+        for j in range (len(liste_temps[i])):
+            sumHoursMonth = sumHoursMonth + (liste_temps[i])[j]
+            if (liste_temps[i])[j] >= 48:
+                print("Warning! Overtime detected in month",i+1,"week",j+1,"! Amount detected :",(liste_temps[i])[j])
+        if sumHoursMonth >= 140:
+            print("Warning! Overtime detected in month",i+1,"! Amount detected :",sumHoursMonth)
+    pass
+
+
+liste_temps = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
+verifie(liste_temps)
