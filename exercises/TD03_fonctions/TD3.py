@@ -178,7 +178,7 @@ def afficheDate(date):
     print(date2[2]," ",date2[1]," ",date2[0]," ",date2[3],":",date2[4],":",date2[5],sep='')
     pass
     
-temps = secondeEnTemps(32503679999)
+temps = secondeEnTemps(10000000000)
 afficheDate(tempsEnDate(temps))
 
 
@@ -200,7 +200,6 @@ def bisextile(jours):
 bisextile(20000)
 
 
-"""
 
 def verifie(liste_temps):
     for i in range (len(liste_temps)):
@@ -214,5 +213,8 @@ def verifie(liste_temps):
     pass
 
 
+
 liste_temps = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
 verifie(liste_temps)
+
+"""
