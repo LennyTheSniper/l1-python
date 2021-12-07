@@ -14,7 +14,7 @@ def secondeEnTemps(seconde):
     return((seconde//86400,(seconde//3600) % 24,(seconde//60) % 60,(seconde % 60)))
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     pass
-'''
+
 temps = secondeEnTemps(100000)
 print(temps[0],"jours",temps[1],"heures",temps[2],"minutes",temps[3],"secondes")
 
@@ -48,7 +48,7 @@ def afficheTemps(temps):
         print(temps[3],"secondes",end='\n')
     pass
 
-afficheTemps((1,0,14,23)) 
+"""afficheTemps((1,0,14,23))""" 
 
 
 
@@ -70,7 +70,7 @@ def demandeTemps():
     return((jours,heures,minutes,secondes))
     pass
 
-afficheTemps(demandeTemps())
+"""afficheTemps(demandeTemps())"""
 
 
 
@@ -94,7 +94,7 @@ def sommeTemps(temps1,temps2):
     return((tempsd,tempsc,tempsb,tempsa))
     pass
 
-afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))
+"""afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))"""
 
 
 
@@ -102,12 +102,12 @@ afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))
 
 
 def proportionTemps(temps,proportion):
-    return(secondeEnTemps(int((tempsEnSeconde(temps))*proportion)))
+    return secondeEnTemps(int(tempsEnSeconde(temps))*proportion)
     pass
 afficheTemps(proportionTemps((2,0,36,0),0.2))
 #appeler la fonction en échangeant l'ordre des arguments
 
-
+'''
 '''
 
 
@@ -177,9 +177,8 @@ def afficheDate(date):
         date2[1] = 'Décembre'
     print(date2[2]," ",date2[1]," ",date2[0]," ",date2[3],":",date2[4],":",date2[5],sep='')
     pass
-    
-temps = secondeEnTemps(4000000000)
-afficheDate(tempsEnDate(temps))
+
+afficheDate(tempsEnDate(secondeEnTemps(4000000000)))
 
 
 """
