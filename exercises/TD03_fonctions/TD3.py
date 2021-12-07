@@ -178,7 +178,7 @@ def afficheDate(date):
     print(date2[2]," ",date2[1]," ",date2[0]," ",date2[3],":",date2[4],":",date2[5],sep='')
     pass
     
-temps = secondeEnTemps(10000000000)
+temps = secondeEnTemps(4000000000)
 afficheDate(tempsEnDate(temps))
 
 
