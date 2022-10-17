@@ -5,18 +5,14 @@ def tempsEnSeconde(temps):
     return(int(temps[0]) * 86400 + int(temps[1]) * 3600 + int(temps[2]) * 60 + int(temps[3]))
     """ Renvoie la valeur en seconde de temps donné comme jour, heure, minute, seconde."""
     pass
-'''
+
 temps = (3,23,1,34)
-print(type(temps))
-print(tempsEnSeconde(temps))
-'''
+
 def secondeEnTemps(seconde):
     return((seconde//86400,(seconde//3600) % 24,(seconde//60) % 60,(seconde % 60)))
     """Renvoie le temps (jour, heure, minute, seconde) qui correspond au nombre de seconde passé en argument"""
     pass
 
-temps = secondeEnTemps(100000)
-print(temps[0],"jours",temps[1],"heures",temps[2],"minutes",temps[3],"secondes")
 
 
 
@@ -48,10 +44,10 @@ def afficheTemps(temps):
         print(temps[3],"secondes",end='\n')
     pass
 
-"""afficheTemps((1,0,14,23))""" 
+afficheTemps((1,0,14,23))
 
 
-
+"""
 
 
 def demandeTemps():
@@ -70,7 +66,7 @@ def demandeTemps():
     return((jours,heures,minutes,secondes))
     pass
 
-"""afficheTemps(demandeTemps())"""
+afficheTemps(demandeTemps())
 
 
 
@@ -94,7 +90,7 @@ def sommeTemps(temps1,temps2):
     return((tempsd,tempsc,tempsb,tempsa))
     pass
 
-"""afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))"""
+afficheTemps(sommeTemps((2,3,4,25),(5,22,57,1)))
 
 
 
@@ -103,12 +99,11 @@ def sommeTemps(temps1,temps2):
 
 def proportionTemps(temps,proportion):
     return secondeEnTemps(int(tempsEnSeconde(temps))*proportion)
-    pass
+
 afficheTemps(proportionTemps((2,0,36,0),0.2))
 #appeler la fonction en échangeant l'ordre des arguments
 
-'''
-'''
+"""
 
 
 #---------------------------------------------------------------------------------------
@@ -150,44 +145,19 @@ def tempsEnDate(temps):
     pass
 
 def afficheDate(date):
-    date2 = list(date)
-    if date2[1] == 1:
-        date2[1] = 'Janvier'
-    elif date2[1] == 2:
-        date2[1] = 'Fevrier'
-    elif date2[1] == 3:
-        date2[1] = 'Mars'
-    elif date2[1] == 4:
-        date2[1] = 'Avril'
-    elif date2[1] == 5:
-        date2[1] = 'Mai'
-    elif date2[1] == 6:
-        date2[1] = 'Juin'
-    elif date2[1] == 7:
-        date2[1] = 'Juillet'
-    elif date2[1] == 8:
-        date2[1] = 'Aôut'
-    elif date2[1] == 9:
-        date2[1] = 'Septembre'
-    elif date2[1] == 10:
-        date2[1] = 'Octobre'
-    elif date2[1] == 11:
-        date2[1] = 'Novembre'
-    else:
-        date2[1] = 'Décembre'
-    print(date2[2]," ",date2[1]," ",date2[0]," ",date2[3],":",date2[4],":",date2[5],sep='')
+    date = list(date)
+    liste_nom_mois = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
+    date[1] = liste_nom_mois[date[1]-1]
+    print(date[2]," ",date[1]," ",date[0]," ",date[3],":",date[4],":",date[5],sep='')
     pass
 
-afficheDate(tempsEnDate(secondeEnTemps(4000000000)))
-
-
-"""
+afficheDate(tempsEnDate(secondeEnTemps(1663943180)))
 
 
 def bisextile(jours):
     Annee = 2020
     while jours > 0 :
-        if testBisextile(Annee) == True:
+        if testBisextile(Annee):
             print(Annee,"est bisextile!")
             jours -= 366
         else:
@@ -215,5 +185,3 @@ def verifie(liste_temps):
 
 liste_temps = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
 verifie(liste_temps)
-
-"""

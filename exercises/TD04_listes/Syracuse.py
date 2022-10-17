@@ -1,3 +1,4 @@
+ListeSyracuse = [1]
 def syracuse(n):
     ListeSyracuse = []
     ListeSyracuse.append(n)
@@ -12,13 +13,21 @@ def syracuse(n):
     return ListeSyracuse
 
 def testeConjecture(n_max):
-        for i in range (2,n_max):
-            syracuse(i)
-            print(i/n_max*100,"%",sep='')
+    n = 1
+    while ListeSyracuse[-1] == 1 and n <= n_max:
+        print(ListeSyracuse[-1] == 1,"at",n)
+        n += 1
+    if n > n_max:
         return True
+    else:
+        return False
+#print(testeConjecture(1000))
 
 def tempsVol(n):
-    return(len(syracuse(n))-1)
+    return(len(syracuse(n)))
+abc = 15
+#print(syracuse(abc))
+#print(tempsVol(abc))
 
 def tempsVolListe(n_max):
     tempsVolListe = []
@@ -26,8 +35,8 @@ def tempsVolListe(n_max):
         tempsVolListe.append(tempsVol(i))
     return (tempsVolListe)
 
-#print(tempsVolListe(100))
-
+print(tempsVolListe(10))
+"""
 def OrdreCroissantListe(Liste):
     PlaceholerList = []
     for i in range (len(Liste)):
@@ -66,3 +75,4 @@ print("L'altitude la plus grande atteint est",OrdoneeB[len(OrdoneeB)-1])
 #print("Le temps de vol de", 3, "est", tempsVol(3))
 
 #print(testeConjecture(10000))
+"""
