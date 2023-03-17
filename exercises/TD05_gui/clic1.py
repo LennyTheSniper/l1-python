@@ -1,7 +1,6 @@
 import tkinter as tk
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 500, 500
-
 root = tk.Tk()
 root.title("Mon test de clic")
 canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "black")

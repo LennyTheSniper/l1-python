@@ -115,18 +115,11 @@ def testBisextile(Annee):
         return(False)
 
 def LongueurMois(Mois,Annee):
-    if Mois % 2 == 1 and Mois < 8 :
-        return(31)
-    elif Mois == 2 and testBisextile(Annee) == True:
+    if Mois == 2 and testBisextile(Annee):
         return(29)
-    elif Mois == 2 and testBisextile(Annee) == False:
-        return(28)
-    elif Mois % 2 == 0 and Mois < 8:
-        return(30)
-    elif Mois % 2 == 1 and Mois >= 8:
-        return(30)
-    elif Mois % 2 == 0 and Mois >= 8:
-        return(31)
+    else:
+        list_len_day = [31,28,31,30,31,30,31,31,30,31,30,31]
+        return(list_len_day[Mois-1])
 
 def tempsEnDate(temps):
     Date = list((1970,1,1,0,0,0))
@@ -148,26 +141,30 @@ def afficheDate(date):
     date = list(date)
     liste_nom_mois = ["Janvier","Février","Mars","Avril","Mai","Juin","Juillet","Août","Septembre","Octobre","Novembre","Décembre"]
     date[1] = liste_nom_mois[date[1]-1]
+    for i in range (4,6):
+        if date[i] == 0:
+            date[i] = "00"
+            print(date[i],i)
     print(date[2]," ",date[1]," ",date[0]," ",date[3],":",date[4],":",date[5],sep='')
     pass
 
-afficheDate(tempsEnDate(secondeEnTemps(1663943180)))
+afficheDate(tempsEnDate(secondeEnTemps(1665964800)))
 
 
 def bisextile(jours):
     Annee = 2020
-    while jours > 0 :
+    jours_a_tester = 0
+    while jours > jours_a_tester :
         if testBisextile(Annee):
             print(Annee,"est bisextile!")
-            jours -= 366
+            jours_a_tester += 366
         else:
-            jours -= 365
+            jours_a_tester += 365
         Annee += 1
     print("Terminé")
     pass
-        
-bisextile(20000)
 
+bisextile(20000)
 
 
 def verifie(liste_temps):
@@ -183,5 +180,5 @@ def verifie(liste_temps):
 
 
 
-liste_temps = [[1,2,39,34],[0,1,9,4],[0,29,39,51],[0,31,13,46]]
+liste_temps = [[1, 2, 39, 34], [0, 1, 9, 4], [0, 29, 39, 51], [0, 31, 13, 46]]
 verifie(liste_temps)

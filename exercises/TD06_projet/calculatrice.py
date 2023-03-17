@@ -37,94 +37,13 @@ EditedVariable = 1
 #################################################
 # Définition des programmes ajoutant des chiffres
 
-def add1():
+def add(number):
     global Variable1, Variable2
     if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('1')
+        Variable1 = str(Variable1) + str(number)
         print_on_canvas(Variable1)
     else:
-        Variable2 = str(Variable2) + str('1')
-        print_on_canvas(Variable2)
-
-def add2():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('2')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('2')
-        print_on_canvas(Variable2)
-
-def add3():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('3')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('3')
-        print_on_canvas(Variable2)
-
-def add4():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('4')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('4')
-        print_on_canvas(Variable2)
-
-def add5():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('5')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('5')
-        print_on_canvas(Variable2)
-
-def add6():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('6')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('6')
-        print_on_canvas(Variable2)
-
-def add7():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('7')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('7')
-        print_on_canvas(Variable2)
-
-def add8():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('8')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('8')
-        print_on_canvas(Variable2)
-
-def add9():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('9')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('9')
-        print_on_canvas(Variable2)
-
-def add0():
-    global Variable1, Variable2
-    if EditedVariable == 1:
-        Variable1 = str(Variable1) + str('0')
-        print_on_canvas(Variable1)
-    else:
-        Variable2 = str(Variable2) + str('0')
+        Variable2 = str(Variable2) + str(number)
         print_on_canvas(Variable2)
 
 def add_pi():
@@ -314,16 +233,16 @@ root = tk.Tk()
 root.title("Calculatrice")
 
 canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "black")
-boutonAdd1 = tk.Button(root, text="1", font=("Arial", "50"), command=add1, bg="white")
-boutonAdd2 = tk.Button(root, text="2", font=("Arial", "50"), command=add2, bg="white")
-boutonAdd3 = tk.Button(root, text="3", font=("Arial", "50"), command=add3, bg="white")
-boutonAdd4 = tk.Button(root, text="4", font=("Arial", "50"), command=add4, bg="white")
-boutonAdd5 = tk.Button(root, text="5", font=("Arial", "50"), command=add5, bg="white")
-boutonAdd6 = tk.Button(root, text="6", font=("Arial", "50"), command=add6, bg="white")
-boutonAdd7 = tk.Button(root, text="7", font=("Arial", "50"), command=add7, bg="white")
-boutonAdd8 = tk.Button(root, text="8", font=("Arial", "50"), command=add8, bg="white")
-boutonAdd9 = tk.Button(root, text="9", font=("Arial", "50"), command=add9, bg="white")
-boutonAdd0 = tk.Button(root, text="0", font=("Arial", "50"), command=add0, bg="white")
+boutonAdd1 = tk.Button(root, text="1", font=("Arial", "50"), command=lambda: add(1), bg="white")
+boutonAdd2 = tk.Button(root, text="2", font=("Arial", "50"), command=lambda: add(2), bg="white")
+boutonAdd3 = tk.Button(root, text="3", font=("Arial", "50"), command=lambda: add(3), bg="white")
+boutonAdd4 = tk.Button(root, text="4", font=("Arial", "50"), command=lambda: add(4), bg="white")
+boutonAdd5 = tk.Button(root, text="5", font=("Arial", "50"), command=lambda: add(5), bg="white")
+boutonAdd6 = tk.Button(root, text="6", font=("Arial", "50"), command=lambda: add(6), bg="white")
+boutonAdd7 = tk.Button(root, text="7", font=("Arial", "50"), command=lambda: add(7), bg="white")
+boutonAdd8 = tk.Button(root, text="8", font=("Arial", "50"), command=lambda: add(8), bg="white")
+boutonAdd9 = tk.Button(root, text="9", font=("Arial", "50"), command=lambda: add(9), bg="white")
+boutonAdd0 = tk.Button(root, text="0", font=("Arial", "50"), command=lambda: add(0), bg="white")
 boutonAdd_pi = tk.Button(root, text="π", font=("Arial", "50"), command=add_pi, bg="white")
 boutonAdd_e = tk.Button(root, text="e", font=("Arial", "50"), command=add_e, bg="white")
 boutonAddDot = tk.Button(root, text=".", font=("Arial", "50"), command=addDot, bg="white")

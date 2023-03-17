@@ -1,6 +1,7 @@
 import tkinter as tk
 import random as rd
-
+import time
+pixel_list = []
 CANVAS_WIDTH, CANVAS_HEIGHT = 256, 256
 
 def get_color(r, g, b):
@@ -8,18 +9,24 @@ def get_color(r, g, b):
     return '#{:02x}{:02x}{:02x}'.format(r, g, b)
 
 def Aleatoire():
+    canvas.delete('all')
     for i in range (0, CANVAS_WIDTH):
+        # root.update()
         for j in range (0, CANVAS_HEIGHT):
             DrawPixel(i, j, get_color(rd.randint(0,255), rd.randint(0,255), rd.randint(0,255)))
 
 def DegradeGris():
+    canvas.delete('all')
     for i in range (0, CANVAS_WIDTH):
+        # root.update()
         for j in range (0, CANVAS_HEIGHT):
             DrawPixel(i, j, get_color(i, i, i))
 
 
 def Degrade2D():
+    canvas.delete('all')
     for i in range (0, CANVAS_WIDTH):
+        # root.update()
         for j in range (0, CANVAS_HEIGHT):
             DrawPixel(i, j, get_color(i, 0, j))
 
@@ -32,7 +39,7 @@ bouton2 = tk.Button(root, text="Dégradé gris", padx=7, font=("helvetica", "30"
 bouton3 = tk.Button(root, text="Dégradé 2D", padx=7, font=("helvetica", "30"), command=Degrade2D, bg="white",fg="blue")
 
 def DrawPixel(x, y, color):
-    canvas.create_line(x, y, x+1, y, width=1, fill=color)
+    pixel_list.append(canvas.create_rectangle(x, y, x, y, width=0, fill=color))
 
 
 DrawPixel(128,128,"#FFFFFF")

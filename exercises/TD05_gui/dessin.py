@@ -12,8 +12,8 @@ def Couleur():
 
 def Cercle():
 
-    Centrex = rd.randint(20,CANVAS_WIDTH-20)
-    Centrey = rd.randint(20,CANVAS_HEIGHT-20)
+    Centrex = rd.randint(50,CANVAS_WIDTH-50)
+    Centrey = rd.randint(50,CANVAS_HEIGHT-50)
     if Color == '':
         Objets.append(canvas.create_oval(Centrex+50,Centrey+50,Centrex-50,Centrey-50,width=5,outline="blue"))
     else:
@@ -21,8 +21,8 @@ def Cercle():
 
 def Carre():
     global Objects
-    Centrex = rd.randint(20,CANVAS_WIDTH-20)
-    Centrey = rd.randint(20,CANVAS_HEIGHT-20)
+    Centrex = rd.randint(50,CANVAS_WIDTH-50)
+    Centrey = rd.randint(50,CANVAS_HEIGHT-50)
     if Color == '':
         Objets.append(canvas.create_rectangle(Centrex+50,Centrey+50,Centrex-50,Centrey-50,width=5,outline="red"))
     else:
@@ -30,8 +30,8 @@ def Carre():
 
 def Croix():
     global Objects
-    Centrex = rd.randint(20,CANVAS_WIDTH-20)
-    Centrey = rd.randint(20,CANVAS_HEIGHT-20)
+    Centrex = rd.randint(50,CANVAS_WIDTH-50)
+    Centrey = rd.randint(50,CANVAS_HEIGHT-50)
     if Color == '':
         Objets.append(canvas.create_line(Centrex+50,Centrey,Centrex-50,Centrey,width=5,fill="yellow"))
         Objets.append(canvas.create_line(Centrex,Centrey+50,Centrex,Centrey-50,width=5,fill="yellow"))

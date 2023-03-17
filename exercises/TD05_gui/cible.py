@@ -13,7 +13,7 @@ canvas = tk.Canvas(root, width = CANVAS_WIDTH, height = CANVAS_HEIGHT, bg= "blac
 
 for i in range(NumberOfCircles):
     canvas.create_oval(Step*i,Step*i,CANVAS_WIDTH-(Step*i),CANVAS_HEIGHT-(Step*i),fill=Color[i],width=0)
-    if Color[i] == "red":
+    if Color[i] == Color[len(Color)-1]:
         Color += Color
 
 canvas.grid()
